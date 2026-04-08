@@ -1,3 +1,4 @@
+// En este archivo defino los tipos del dominio universitario y el reporte de matricula.
 export interface Estudiante {
   readonly id: string;
   nombreCompleto: string;
@@ -32,10 +33,12 @@ export type EstadoMatricula =
   | MatriculaSuspendida
   | MatriculaFinalizada;
 
+// Con esta función fuerzo el análisis exhaustivo en el switch.
 function assertNever(value: never): never {
   throw new Error(`Estado de matricula no soportado: ${JSON.stringify(value)}`);
 }
 
+// Aquí transformo el estado de matrícula en un texto descriptivo.
 export function generarReporte(estado: EstadoMatricula): string {
   switch (estado.tipo) {
     case "ACTIVA":

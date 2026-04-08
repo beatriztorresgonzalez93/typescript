@@ -1,3 +1,4 @@
+// En este archivo simulo un cliente de datos con respuestas tipadas.
 export interface RespuestaAPI<T> {
   ok: boolean;
   endpoint: string;
@@ -21,6 +22,7 @@ const baseDatosSimulada: Record<string, unknown> = {
   },
 };
 
+// Con esta función obtengo un recurso por endpoint y lo devuelvo con tipo estricto.
 export function obtenerRecurso<T>(endpoint: string): Promise<RespuestaAPI<T>> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
